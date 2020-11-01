@@ -12,4 +12,37 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  users: any[] = [
+    {
+      "id": "1",
+      "name": "Rildo Alves",
+      "age": '21',
+      "registered": '11/09/2013'
+    },
+    {
+      "id": "2",
+      "name": "Rildo Alves",
+      "age": '21',
+      "registered": '11/09/2013'
+    },
+    {
+      "id": "3",
+      "name": "Rildo Alves",
+      "age": '21',
+      "registered": '11/09/2013'
+    },
+    {
+      "id": "4",
+      "name": "Rildo Alves",
+      "age": '21',
+      "registered": '11/09/2013'
+    },
+    {
+      "id": "5",
+      "name": "Rildo Alves",
+      "age": '21',
+      "registered": '11/09/2013'
+    }
+  ];
+
 }
