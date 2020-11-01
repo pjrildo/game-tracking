@@ -12,4 +12,37 @@ export class GamesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  games: any[] = [
+    {
+      "id": "1",
+      "name": "Cyberpunk 2077",
+      "release": '10/12/2020',
+      "publisher": 'CD Projekt Red'
+    },
+    {
+      "id": "2",
+      "name": "Cyberpunk 2077",
+      "release": '10/12/2020',
+      "publisher": 'CD Projekt Red'
+    },
+    {
+      "id": "3",
+      "name": "Cyberpunk 2077",
+      "release": '10/12/2020',
+      "publisher": 'CD Projekt Red'
+    },
+    {
+      "id": "4",
+      "name": "Cyberpunk 2077",
+      "release": '10/12/2020',
+      "publisher": 'CD Projekt Red'
+    },
+    {
+      "id": "5",
+      "name": "Cyberpunk 2077",
+      "release": '10/12/2020',
+      "publisher": 'CD Projekt Red'
+    }
+  ];
+
 }

@@ -8,6 +8,9 @@ import { GamesComponent } from './games/games.component';
 import { PublishersComponent } from './publishers/publishers.component';
 import { GameComponent } from './games/game/game.component';
 import { PublisherComponent } from './publishers/publisher/publisher.component';
+import { CreateGameComponent } from './games/create-game/create-game.component';
+import { CreatePublisherComponent } from './publishers/create-publisher/create-publisher.component';
+import { CreateUserComponent } from './users/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { PublisherComponent } from './publishers/publisher/publisher.component';
     PublishersComponent,
     GameComponent,
     PublisherComponent,
+    CreateGameComponent,
+    CreatePublisherComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule
