@@ -12,4 +12,37 @@ export class PublishersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  publishers: any[] = [
+    {
+      "id": "1",
+      "name": "CD Projekt Red",
+      "founded": '1994',
+      "headquarters": 'Polônia'
+    },
+    {
+      "id": "2",
+      "name": "CD Projekt Red",
+      "founded": '1994',
+      "headquarters": 'Polônia'
+    },
+    {
+      "id": "3",
+      "name": "CD Projekt Red",
+      "founded": '1994',
+      "headquarters": 'Polônia'
+    },
+    {
+      "id": "4",
+      "name": "CD Projekt Red",
+      "founded": '1994',
+      "headquarters": 'Polônia'
+    },
+    {
+      "id": "5",
+      "name": "CD Projekt Red",
+      "founded": '1994',
+      "headquarters": 'Polônia'
+    }
+  ];
+
 }
