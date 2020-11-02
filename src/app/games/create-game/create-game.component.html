@@ -1,1 +1,37 @@
-<p>create-game works!</p>
+<div class="container">
+    <div class="col">
+        <form [formGroup]="formGames" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="titleField">Título</label>
+                <input type="text" formControlName="title" id="titleField" class="form-control" placeholder="Título" [class.is-invalid]="(formGames.get('title').touched || formGames.get('title').dirty) && formGames.get('title').invalid" />
+                <div *ngIf="f.title.errors" class="invalid-feedback">
+                    <div *ngIf="f.title.errors.required">Insira um título</div>
+                    <div *ngIf="f.title.errors.minlength">O título deve ter pelo menos 2 caracteres</div>
+                    <div *ngIf="f.title.errors.maxlength">O título deve ter no máximo 80 caracteres</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="releaseField">Data de Lançamento</label>
+                <input type="date" formControlName="release" id="releaseField" class="form-control" placeholder="Data de Lançamento" [class.is-invalid]="(formGames.get('release').touched || formGames.get('release').dirty) && formGames.get('release').invalid" />
+                <div *ngIf="f.release.errors" class="invalid-feedback">
+                    <div *ngIf="f.release.errors.required">Insira uma data de lançamento</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="publisherSelect">Distribuidora</label>
+                <select formControlName="publisher" class="form-control" id="publisherSelect" [class.is-invalid]="(formGames.get('publisher').touched || formGames.get('publisher').dirty) && formGames.get('publisher').invalid">
+                    <option [ngValue]="null" disabled>Selecione a distribuidora</option>
+                    <option *ngFor="let publisher of publishers" [ngValue]="publisher">
+                        {{ publisher.name }}
+                    </option>
+                </select>
+                <div *ngIf="f.publisher.errors" class="invalid-feedback">
+                    <div *ngIf="f.publisher.errors.required">Selecione uma distribuidora</div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary" [hidden]="formGames.invalid">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
