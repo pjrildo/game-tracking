@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Game } from 'src/app/shared/game/game'
+import { GameService } from 'src/app/shared/game/game.service';
 
 @Component({
   selector: 'app-create-game',
@@ -8,54 +10,24 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateGameComponent implements OnInit {
 
+  game = {} as Game;
+  games: Game[];
+
   formGames : FormGroup
 
   submitted = false;
 
-  constructor(private formBuilder : FormBuilder) {}
+  constructor(private formBuilder : FormBuilder, private service : GameService) {}
 
   ngOnInit() {
     this.formGames = this.formBuilder.group(
       {
         title: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(80)]],
         release: ["", Validators.required],
-        publisher: ["", Validators.required],
+        // publisher: ["", Validators.required],
       }
     );
   }
-
-  publishers: any[] = [
-    {
-      "id": "1",
-      "name": "CD Projekt Red",
-      "founded": '1994',
-      "headquarters": 'Polônia'
-    },
-    {
-      "id": "2",
-      "name": "CD Projekt Red",
-      "founded": '1994',
-      "headquarters": 'Polônia'
-    },
-    {
-      "id": "3",
-      "name": "CD Projekt Red",
-      "founded": '1994',
-      "headquarters": 'Polônia'
-    },
-    {
-      "id": "4",
-      "name": "CD Projekt Red",
-      "founded": '1994',
-      "headquarters": 'Polônia'
-    },
-    {
-      "id": "5",
-      "name": "CD Projekt Red",
-      "founded": '1994',
-      "headquarters": 'Polônia'
-    }
-  ];
 
   get f() {
     return this.formGames.controls;
@@ -67,6 +39,24 @@ export class CreateGameComponent implements OnInit {
     if(this.formGames.invalid) {
       return;
     }
-
   }
+
+  cleanForm(formGames: FormGroup) {  
+    formGames.reset();
+    this.game = {} as Game;      
+  }
+
+  getGames() {
+    this.service.getGames().subscribe((games: Game[]) => {
+      this.games = games;
+    });
+  }
+
+  saveGame(formGames: FormGroup) {    
+    console.log(this.game);
+    this.service.saveGame(this.game).subscribe(() => {
+      this.cleanForm(formGames);
+    });  
+  }
+
 }

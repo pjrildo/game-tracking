@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col">
-        <form [formGroup]="formGames" (ngSubmit)="onSubmit()">
+        <form [formGroup]="formGames" (ngSubmit)="saveGame(formGames)">
             <div class="form-group">
                 <label for="titleField">Título</label>
                 <input type="text" formControlName="title" id="titleField" class="form-control" placeholder="Título" [class.is-invalid]="(formGames.get('title').touched || formGames.get('title').dirty) && formGames.get('title').invalid" />
@@ -17,7 +17,7 @@
                     <div *ngIf="f.release.errors.required">Insira uma data de lançamento</div>
                 </div>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label for="publisherSelect">Distribuidora</label>
                 <select formControlName="publisher" class="form-control" id="publisherSelect" [class.is-invalid]="(formGames.get('publisher').touched || formGames.get('publisher').dirty) && formGames.get('publisher').invalid">
                     <option [ngValue]="null" disabled>Selecione a distribuidora</option>
@@ -28,10 +28,31 @@
                 <div *ngIf="f.publisher.errors" class="invalid-feedback">
                     <div *ngIf="f.publisher.errors.required">Selecione uma distribuidora</div>
                 </div>
-            </div>
+            </div>-->
             <div>
                 <button type="submit" class="btn btn-primary" [hidden]="formGames.invalid">Salvar</button>
             </div>
         </form>
     </div>
+
+    <button class="btn btn-warning btn-sm ml-1" (click)="getGames()" type="button">Listar Todos</button>
+
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Descrição</th>                
+  
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let game of games">
+                <td>{{game.title}}</td>
+                <td>{{game.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
 </div>
