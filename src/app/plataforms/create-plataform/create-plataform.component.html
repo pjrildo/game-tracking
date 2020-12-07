@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col">
+        <form [formGroup]="formPlataforms" (ngSubmit)="savePlataform(formPlataforms.value)">
+            <div class="form-group">
+                <label for="nameField">Nome</label>
+                <input type="text" formControlName="name" id="nameField" class="form-control" placeholder="Nome" [class.is-invalid]="(formPlataforms.get('name').touched || formPlataforms.get('name').dirty) && formPlataforms.get('name').invalid" />
+                <div *ngIf="f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Insira o nome</div>
+                    <div *ngIf="f.name.errors.minlength">O nome deve ter pelo menos 5 caracteres</div>
+                    <div *ngIf="f.name.errors.maxlength">O nome deve ter no máximo 30 caracteres</div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary" [disabled]="formPlataforms.invalid">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

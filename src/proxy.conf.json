@@ -1,7 +1,0 @@
-{
-    "/api/*": {
-        "target": "https://game-tracking-api.herokuapp.com/",
-        "secure": false,
-        "logLevel": "debug"
-    }
-} 
