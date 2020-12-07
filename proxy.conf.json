@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "https://game-tracking-api.herokuapp.com",
+    "pathRewrite": { "^/api": "" },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

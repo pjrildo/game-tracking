@@ -68,7 +68,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "web-app:build:production",
+              "browserTarget": "gt-app:build:production",
               "proxyConfig": "proxy.conf.json"
             }
           }
